@@ -5,31 +5,28 @@ import config.annotations.Dataset;
 import config.webdriver.DriverBase;
 import exception.IncorrectTestDataException;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit5.AllureJunit5AnnotationProcessor;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import static config.ApplicationProperties.ApplicationProperty.APP_URL;
 import static config.ApplicationProperties.getBoolean;
 import static config.ApplicationProperties.getString;
-import static support.web.WebElementHelper.executeJS;
 import static support.web.WebElementHelper.navigateToPage;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 import ui.components.models.MainModel;
 import utils.DataProvider;
-
 import java.io.File;
 import java.io.IOException;
 
-import static config.ApplicationProperties.ApplicationProperty.APP_URL;
-import static support.web.WebElementHelper.refresh;
 
 @ExtendWith(AllureJunit5AnnotationProcessor.class)
 @ExtendWith(TestContext.AfterTestExecution.class)
@@ -60,17 +57,15 @@ public class TestContext {
         DriverBase.closeCurrentDriver();
     }
 
+    @Step("Open browser and navigate to application")
     public MainModel open(String language) {
         switch (language){
-            case "LAT":  navigateToPage(ApplicationProperties.getString(APP_URL));
+            case "RU":  navigateToPage(ApplicationProperties.getString(APP_URL)+"/?lang=ru");
                 break;
-            case "RUS":  navigateToPage(ApplicationProperties.getString(APP_URL)+"/ru");
-                break;
-            case "ENG":  navigateToPage(ApplicationProperties.getString(APP_URL)+"/en");
+            case "EN":  navigateToPage(ApplicationProperties.getString(APP_URL)+"/?lang=en");
                 break;
         }
         MainModel mainModel = new MainModel(language);
-        mainModel.closeNewVersionPromo();
         return mainModel;
     }
 

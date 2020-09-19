@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static config.ApplicationProperties.ApplicationProperty.WAIT_TIMEOUT_SHT;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -32,6 +33,18 @@ public class WebElementHelper {
         } catch (StaleElementReferenceException ex) {
             return isElementDisplayed(locator, timeOut);
         }
+    }
+
+    public static void selectValueFromCustomComboBox(By locator, String dataSelectionValue){
+        WebElement label=waitForElement(locator);
+        label.click();
+        label.findElement(By.cssSelector("a[data-selection='"+dataSelectionValue+"']")).click();
+    }
+
+    public static List<String> getAllSortingOptions(By locator){
+        WebElement label=waitForElement(locator);
+        label.click();
+        return label.findElements(By.cssSelector("li>a")).stream().map(e->e.getText().trim()).collect(Collectors.toList());
     }
 
     public static WebElement waitForElement(By locator) {
