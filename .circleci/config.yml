@@ -12,3 +12,7 @@ jobs:
           name: Generate report
           command: |
             mvn allure:report
+      - store_test_results:
+          path: ~/allure-results
+      - store_artifacts:
+          path: ~/target/site/allure-maven-plugin
