@@ -15,4 +15,4 @@ jobs:
       - store_test_results:
           path: ~/project/target/surefire-reports
       - store_artifacts:
-          path: ~/project/target/site/allure-maven-plugin
+          path: ~/project/target/site/allure-maven-plugin/index.html
