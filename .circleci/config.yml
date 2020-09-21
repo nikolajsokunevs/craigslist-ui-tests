@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - checkout
-      - run: mvn clean test
+      - run: mvn clean test -DthreadCount=5
       - run:
           name: Generate report
           command: |
