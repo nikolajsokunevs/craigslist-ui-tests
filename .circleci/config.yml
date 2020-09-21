@@ -8,3 +8,7 @@ jobs:
     steps:
       - checkout
       - run: mvn clean test
+      - run:
+          name: Generate report
+          command: |
+            mvn allure:report
