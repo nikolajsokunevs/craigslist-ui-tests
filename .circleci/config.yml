@@ -13,6 +13,6 @@ jobs:
           command: |
             mvn allure:report
       - store_test_results:
-          path: ~/allure-results
+          path: ~/project/target/allure-results
       - store_artifacts:
-          path: ~/target/site/allure-maven-plugin
+          path: ~/project/target/site/allure-maven-plugin
