@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static config.ApplicationProperties.ApplicationProperty.WAIT_TIMEOUT_SHT;
-import static org.junit.jupiter.api.Assertions.fail;
 
 public class WebElementHelper {
     private static final Logger logger = LoggerFactory.getLogger(WebElementHelper.class);
@@ -84,13 +83,10 @@ public class WebElementHelper {
             return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (TimeoutException te) {
             logger.error(te.getMessage());
-            fail("Locator '" + locator + "' not found after waiting for it's visibility");
         } catch (NoSuchElementException ne) {
             logger.error(ne.getMessage());
-            fail("Locator '" + locator + "' not found, unable to locate it");
         } catch (Exception e) {
             logger.error(e.getMessage());
-            fail("Locator '" + locator + "' not found");
         }
         return null;
     }
