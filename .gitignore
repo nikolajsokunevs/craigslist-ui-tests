@@ -12,5 +12,7 @@ release.properties
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.idea
+.allure
 
 # Node
