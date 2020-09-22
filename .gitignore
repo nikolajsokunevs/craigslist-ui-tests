@@ -2,7 +2,8 @@
 # Maven, Node, Python, Rails
 
 # Maven
-
+.idea/*
+.allure/*
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -12,7 +13,6 @@ release.properties
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-.idea
-.allure
+
 
 # Node
