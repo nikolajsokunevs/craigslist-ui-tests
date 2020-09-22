@@ -8,11 +8,7 @@ jobs:
     steps:
       - checkout
       - run: mvn clean test -DthreadCount=5
-      - run:
-          name: Generate report
-          command: |
-            mvn allure:report
       - store_test_results:
-          path: ~/project/target/surefire-reports
+          path: ~/project/target
       - store_artifacts:
-          path: ~/project/target/site/allure-maven-plugin
+          path: ~/project/target
