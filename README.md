@@ -1,6 +1,5 @@
 Selenium / Allure / JUnit5 / Selenoid  [![CircleCI](https://circleci.com/gh/nokunev/craigslist-ui-tests.svg?style=shield)](https://app.circleci.com/pipelines/github/nokunev/craigslist-ui-tests)
 
-
 ### Scope:
     1. Test execution on remote machine(VM DigitalOcean+Docker+Selenoid). 
     2. Screenshot creation for failed tests
