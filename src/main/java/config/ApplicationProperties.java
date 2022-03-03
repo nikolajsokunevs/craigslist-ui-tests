@@ -25,7 +25,7 @@ public class ApplicationProperties {
 
                     //Selenium grid settings
                     setProperty(ApplicationProperty.REMOTE_DRIVER.value, "true");
-                    setProperty(ApplicationProperty.SELENIUM_GRID_URL.value, "http://207.154.192.171:4444");
+                    setProperty(ApplicationProperty.SELENIUM_GRID_URL.value, "http://208.68.36.115:4444");
                     setProperty(ApplicationProperty.DESIRED_BROWSER_VERSION.value, "");
                     setProperty(ApplicationProperty.DESIRED_PLATFORM.value, "");
                     setProperty(ApplicationProperty.ENABLE_VIDEO.value, "true");
